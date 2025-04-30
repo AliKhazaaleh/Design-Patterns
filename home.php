@@ -121,5 +121,121 @@
 
 
 
+        <h3>Chain of Responsibility Design Pattern</h3>
+        <?php
+
+            require_once __DIR__ . '/behavioral/ChainResponsibility.php';
+
+            $authHandler = new AuthHandler();
+            $loggingHandler = new LoggingHandler();
+            $validationHandler = new ValidationHandler();
+
+            $authHandler->setNext($loggingHandler)->setNext($validationHandler);
+
+
+            $requests = ["auth", "log", "validate", "unknown"];
+            foreach ($requests as $request) {
+                $result = $authHandler->handle($request);
+                echo $result.  '<br>';
+            }
+        ?>
+
+
+        <h3> Momento Design Pattern</h3>
+        <?php
+
+            require_once __DIR__ . '/behavioral/Momento.php';
+
+            $document = new Document();
+            $history = new History();
+
+            $document->write("Hello, ");
+            $history->push($document->save());
+
+            $document->write("World!");
+            $history->push($document->save());
+
+            $document->write(" This is a test.");
+            echo "Current Content: " . $document->getContent().  '<br>';
+
+            $document->restore($history->pop());
+            echo "After Undo: " . $document->getContent().  '<br>';
+
+            $document->restore($history->pop());
+            echo "After Second Undo: " . $document->getContent().  '<br>';
+
+        ?>
+        
+
+        <h3> Observer Design Pattern</h3>
+        <?php
+
+            require_once __DIR__ . '/behavioral/Observer.php';
+
+            $weatherStation = new WeatherStation();
+
+            $phoneDisplay = new PhoneDisplay();
+            $tvDisplay = new TVDisplay();
+
+            $weatherStation->addObserver($phoneDisplay);
+            $weatherStation->addObserver($tvDisplay);
+
+            $weatherStation->setTemperature(25.5);
+            $weatherStation->setTemperature(30.0);
+        ?>
+
+
+
+        <h3> State Design Pattern</h3>
+        <?php
+
+            require_once __DIR__ . '/behavioral/State.php';
+
+            $vendingMachine = new VendingMachineContext();
+
+            $vendingMachine->setState(new ReadyState());
+            $vendingMachine->request();
+
+            $vendingMachine->setState(new ProductSelectedState());
+            $vendingMachine->request();
+
+            $vendingMachine->setState(new PaymentPendingState());
+            $vendingMachine->request();
+
+            $vendingMachine->setState(new OutOfStockState());
+            $vendingMachine->request();
+
+
+        ?>
+
+        
+        <h3> Strategy Design Pattern</h3>
+        <?php
+            
+            require_once __DIR__ . '/behavioral/Strategy.php';
+
+            $data = [34, 7, 23, 32, 5, 62];
+
+            $context = new SearchContext(new BubbleSortStrategy());
+            echo "Bubble Sort: " . implode(", ", $context->executeStrategy($data)).  '<br>';
+            
+            $context->setStrategy(new QuickSortStrategy());
+            echo "Quick Sort: " . implode(", ", $context->executeStrategy($data)).  '<br>';
+            
+        ?>
+        
+        <h3> Template Design Pattern</h3>
+        <?php
+            
+            require_once __DIR__ . '/behavioral/Template.php';
+            $teaMaker = new TeaMaker();
+            $teaMaker->prepareBeverage();
+            
+            $coffeeMaker = new CoffeeMaker();
+            $coffeeMaker->prepareBeverage();
+
+        ?>
+
+
     </body>
 </html>
