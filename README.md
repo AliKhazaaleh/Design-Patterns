@@ -1,6 +1,6 @@
 # Design-Patterns
 
-This repository contains practical examples of various design patterns implemented in PHP. The project is organized into three main categories of design patterns: Creational, Structural, and Behavioral.
+This repository contains practical examples of various design patterns implemented in PHP, featuring a modern and clean user interface. The project demonstrates the implementation of different design patterns organized into three main categories.
 
 ## Project Structure
 
@@ -10,41 +10,85 @@ The examples are organized in separate directories based on their categories:
 
 These patterns deal with object creation mechanisms:
 
-- **Singleton** (`creational/Singleton.php`): Ensures a class has only one instance and provides a global point of access to it.
-- **Factory Method** (`creational/FactoryMethod.php`): Defines an interface for creating objects but lets subclasses decide which class to instantiate.
-- **Prototype** (`creational/Prototype.php`): Creates new objects by cloning an existing object, known as the prototype.
+- **Singleton** (`creational/Singleton.php`)
+  - Ensures a class has only one instance
+  - Provides a global point of access to it
+  
+- **Factory Method** (`creational/FactoryMethod.php`)
+  - Defines an interface for creating objects
+  - Lets subclasses decide which class to instantiate
+  
+- **Prototype** (`creational/Prototype.php`)
+  - Creates new objects by cloning an existing object
+  - Demonstrates prototype pattern with job posting example
 
 ### Structural Patterns
 
 These patterns deal with object composition and relationships between objects:
 
-- **Adapter** (`structural/Adapter.php`): Allows incompatible interfaces to work together by wrapping an object in an adapter to make it compatible with another class.
-- **Bridge** (`structural/Bridge.php`): Separates an abstraction from its implementation so that both can vary independently.
-- **Composite** (`structural/Composite.php`): Composes objects into tree structures to represent part-whole hierarchies.
-- **Facade** (`structural/Facade.php`): Provides a unified interface to a set of interfaces in a subsystem.
-- **Flyweight** (`structural/Flyweight.php`): Minimizes memory usage by sharing as much data as possible with similar objects.
-- **Proxy** (`structural/Proxy.php`): Provides a surrogate or placeholder for another object to control access to it.
+- **Adapter** (`structural/Adapter.php`)
+  - Allows incompatible interfaces to work together
+  - Wraps an object in an adapter to make it compatible with another class
+
+- **Bridge** (`structural/Bridge.php`)
+  - Separates an abstraction from its implementation
+  - Demonstrates with shapes and colors example
+
+- **Composite** (`structural/Composite.php`)
+  - Composes objects into tree structures
+  - Represents part-whole hierarchies
+
+- **Facade** (`structural/Facade.php`)
+  - Provides a unified interface to a set of interfaces
+  - Simplifies complex subsystem interactions
+
+- **Flyweight** (`structural/Flyweight.php`)
+  - Minimizes memory usage by sharing data
+  - Demonstrates with icon management system
+
+- **Proxy** (`structural/Proxy.php`)
+  - Provides a surrogate for another object
+  - Controls access to the original object
 
 ### Behavioral Patterns
 
 These patterns deal with communication between objects:
 
-- **Chain of Responsibility** (`behavioral/ChainResponsibility.php`): Passes requests along a chain of handlers until one of them handles the request.
-- **Memento** (`behavioral/Momento.php`): Captures and restores an object's internal state.
-- **Observer** (`behavioral/Observer.php`): Defines a one-to-many dependency between objects where a state change in one object results in all its dependents being notified and updated automatically.
-- **State** (`behavioral/State.php`): Allows an object to alter its behavior when its internal state changes.
-- **Strategy** (`behavioral/Strategy.php`): Defines a family of algorithms, encapsulates each one, and makes them interchangeable.
-- **Template** (`behavioral/Template.php`): Defines the skeleton of an algorithm in a method, deferring some steps to subclasses.
+- **Chain of Responsibility** (`behavioral/ChainResponsibility.php`)
+  - Passes requests along a chain of handlers
+  - Each handler decides to process or pass along
+
+- **Memento** (`behavioral/Momento.php`)
+  - Captures and restores an object's internal state
+  - Implements undo functionality
+
+- **Observer** (`behavioral/Observer.php`)
+  - Defines a one-to-many dependency between objects
+  - When one object changes state, all dependents are notified
+
+- **State** (`behavioral/State.php`)
+  - Allows an object to alter its behavior when its internal state changes
+  - Implements vending machine state transitions
+
+- **Strategy** (`behavioral/Strategy.php`)
+  - Defines a family of algorithms
+  - Makes them interchangeable within same family
+
+- **Template** (`behavioral/Template.php`)
+  - Defines the skeleton of an algorithm
+  - Lets subclasses override specific steps
 
 ## Usage
 
-The project includes two demonstration files:
-- `home.php`: Basic implementation examples
-- `home2.php`: Modern UI implementation with visual examples of the design patterns
+The project includes a single demonstration file:
 
-To run the examples, simply serve these files through a PHP server and navigate to them in your web browser.
+- `home.php`: Modern UI implementation showcasing all design patterns with clear categorization and examples
 
-## Requirements
+To run the examples:
+1. Ensure you have PHP 7.4 or higher installed
+2. Set up a web server (Apache/Nginx) with PHP support
+3. Navigate to `home.php` in your web browser
 
-- PHP 7.4 or higher
-- Web server (Apache/Nginx) with PHP support
+## Development
+
+Each pattern is implemented in its own file within the appropriate category directory (creational, structural, or behavioral). The implementations include detailed comments and practical examples to demonstrate the usage of each pattern.
